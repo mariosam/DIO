@@ -1,4 +1,4 @@
-# DIO
+# DIO (Digital Innovation One)
 
 Neste espaço estou publicando minhas soluções para os desafios de código da DIO.
 Meu diferencial está em publicar a solução em 4 diferentes linguagens:
