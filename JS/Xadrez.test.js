@@ -14,6 +14,8 @@ TEST('Starting xadrez test...', (t) => {
     t.assert(OBJ.tableColor(5, 91) === 1, "Expect: 5 91 = 1")
     //Test 3
     t.assert(OBJ.tableColor(6, 9) === 0, "Expect: 6 9 = 0")
+    //Test 4
+    t.assert(OBJ.tableColor(1, 1) === 1, "Expect: 1 1 = 1")
 
     t.end()
 })
