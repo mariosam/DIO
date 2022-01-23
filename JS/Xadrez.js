@@ -4,7 +4,13 @@
  * @see I would love to work with you instead solving web code tests: hire me!
  */
 
-//console.log("Result is "+tableColor(8,8));
+/*
+let lines = gets().split("\n");
+var l = parseInt(lines[0]);
+var c = parseInt(lines[1]);
+
+print( tableColor(l,c) );
+*/
 
 /**
  * Do the math for identify if the square is white or black
