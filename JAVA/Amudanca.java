@@ -16,13 +16,13 @@ public class Amudanca {
     private final static String MADRU = "De Madrugada!!";
 
     public static void main(String[] args) throws IOException {
-		    Scanner sc = new Scanner( System.in );
+		Scanner sc = new Scanner( System.in );
 
         while ( sc.hasNextInt() ) {
             System.out.println( salutation( sc.nextInt() ) );
         }
         sc.close();
-	  }
+	}
 
     /**
      * Return the best salutation based on sun time.
