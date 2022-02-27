@@ -6,22 +6,24 @@
  */
 package GO
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
-func TestQuantidadeNumerosPositivos(t *testing.T) {
+func TestProgramaValidacaoDeNotas(t *testing.T) {
 	tables := []struct {
-		nums []float32
-		want int
+		ops  []string
+		want []string
 	}{
-		{[]float32{7, -5, 6, -3.4, 4.6, 12}, 4},
-		{[]float32{70, 67, 77, 99, 23, 1}, 6},
+		{[]string{"-3.5", "3.5", "11.0", "10.0", "4", "1", "8.0", "9.0", "2", "7.0"}, []string{"nota invalida", "nota invalida", "media = 6.75", "novo calculo (1-sim 2-nao)", "novo calculo (1-sim 2-nao)", "media = 8.50", "novo calculo (1-sim 2-nao)"}},
 	}
 
 	for _, table := range tables {
-		got := sumPositives(table.nums)
+		got := startSystem(table.ops)
 
-		if got != table.want {
-			t.Errorf("Waiting for this %d but the return was this: %d", table.want, got)
+		if !reflect.DeepEqual(got, table.want) {
+			t.Errorf("Waiting for this %v but the return was this: %v", table.want, got)
 		}
 	}
 }
