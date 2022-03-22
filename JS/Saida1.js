@@ -5,11 +5,7 @@
  */
 
 printBox("-", "-");
-printBox("|", " ");
-printBox("|", " ");
-printBox("|", " ");
-printBox("|", " ");
-printBox("|", " ");
+for ( let i=0; i < 5; i++ ) printBox( "|", " " );
 printBox("-", "-");
 
 /**
@@ -17,7 +13,7 @@ printBox("-", "-");
  */
 function printBox(n1, n2) {
     let result = "\n"+n1;
-    for ( i=0; i < 37; i++ ) result += n2 ;
+    for ( let i=0; i < 37; i++ ) result += n2 ;
     result += n1+"\n";
     
     console.log( result );
