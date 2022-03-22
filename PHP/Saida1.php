@@ -14,9 +14,11 @@ class Saida1 {
      * Print the sysmbols.
      */
     public function printBox($n1, $n2) {
-       echo "\n".$n1;
-	     for ( $i=0; $i < 37; $i++ ) echo $n2;
-	     echo $n1."\n";
+        $result = "\n".$n1;
+	    for ( $i=0; $i < 37; $i++ ) $result .= $n2;
+	    $result .= $n1."\n";
+
+        echo $result;
     }
 
 }
