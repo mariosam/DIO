@@ -4,7 +4,13 @@
  * @see I would love to work with you instead solving web code tests: hire me!
  */
 
-//console.log("The result is "+numberAnalysis([-5, 0, -3, -4, 12]));
+let ops = [parseInt(gets()), parseInt(gets()), parseInt(gets()), parseInt(gets()), parseInt(gets())];
+let ret = numberAnalysis( ops );
+
+console.log(`${ret[0]} par(es)`);
+console.log(`${ret[1]} impar(es)`);
+console.log(`${ret[2]} positivo(s)`);
+console.log(`${ret[3]} negativo(s)`);
 
 /**
  * Count number of positives negatives odd and even.
