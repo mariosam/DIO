@@ -3,6 +3,8 @@ Recriando a Interface do Netflix
 
 Minhas contribuições:
 - Alterado menu superior
+- Alterado capa
+- Modificado contorno dos botões
 - Adicionado campo de busca
 - Incluido a lista de filmes "Minha Lista"
 - Adicionado footer/rodapé ao site
