@@ -18,14 +18,11 @@ console.log( numberOfGuests( input, ops ) );
  */
 function numberOfGuests( inp = [], ops = [] ) {
     let conta = 0;
-    let n = inp[0];
-    let min = inp[1];
-    let max = inp[2];
 
-    for ( let i=0; i < n; i++ ) {
+    for ( let i=0; i < inp[0]; i++ ) {
         let altura = ops[i];
 
-        if ( altura >= min && altura <= max ) conta++;
+        if ( altura >= inp[1] && altura <= inp[2] ) conta++;
     }
 
     return conta;
