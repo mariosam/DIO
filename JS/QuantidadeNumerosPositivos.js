@@ -4,7 +4,11 @@
  * @see I would love to work with you instead solving web code tests: hire me!
  */
 
-//console.log("Result is "+sumPositives([4, 4, 6, 2]));
+let arr = [];
+for (let i = 0; i < 6; i++) {
+    arr.push( gets() );
+}
+print( sumPositives( arr ) + " valores positivos" );
 
 /**
  * Count positives numbers.
