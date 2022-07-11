@@ -4,11 +4,11 @@
  * @see I would love to work with you instead solving web code tests: hire me!
  */
 
-let lines = gets().split("\n");
+let lines = gets().split(" ");
 var a = parseInt(lines[0]);
 var b = parseInt(lines[1]);
 
-print( totalPeppers(a, b) );
+print( "X = " + totalPeppers(a, b) );
 
 /**
  * Calculate the numbers of peppers.
