@@ -4,7 +4,10 @@
  * @see I would love to work with you instead solving web code tests: hire me!
  */
 
-//console.log("Result is "+getMulti(6, 2));
+var a = parseInt(gets());
+var b = parseInt(gets());
+
+print( "PROD = " + getMulti(a, b) );
 
 /**
  * Multiply two numbers.
