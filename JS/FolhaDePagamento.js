@@ -5,16 +5,16 @@
  */
 
 let colab = parseInt(gets());
-let time  = parseInt(gets());
+let time  = parseFloat(gets());
 let value = parseFloat(gets());
 
 console.log("NUMBER = " + colab);
-console.log("SALARY = U$ " + calcSalary(time, value) );
+console.log("SALARY = U$ " + calcSalary(time, value).toFixed(2) );
 
 /**
  * Calculate worktime by timevalue.
  */
 function calcSalary(t, v) {
-    return parseFloat((t * v).toFixed(2));
+    return t * v;
 }
 //module.exports = {calcSalary}
