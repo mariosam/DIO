@@ -6,7 +6,6 @@
 package JAVA;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -33,10 +32,11 @@ public class UniformesDeFinalDeAno {
      * Return the order of uniforms in the array
      */
     public static String[] uniformsInOrder(String[] inputs) {
-        ArrayList<ListUniform> list = new ArrayList<ListUniform>();
+        //ArrayList<ListUniform> list = new ArrayList<ListUniform>();
+        ListUniform[] list = new ListUniform[inputs.length];
 
         //guarda os valores em um objeto
-        for (int i = 1; i < inputs.length; i++) {
+        for (int i = 0; i < inputs.length; i++) {
             String nome = inputs[i];
             i++; //proximo item do array
             String[] temp = inputs[i].split(" "); //separa os itens do array
@@ -44,27 +44,33 @@ public class UniformesDeFinalDeAno {
             String tamanho = temp[1]; //tamanho do uniforme
 
             ListUniform uniforme = new ListUniform( cor, tamanho, nome);
-            list.add(uniforme);
+            list[i] = uniforme;
+            //list.add(uniforme);
         }
 
         //criar uma ordem no objeto
         Arrays.sort( list, new Comparator<ListUniform>() {
             @Override
             public int compare(ListUniform o1, ListUniform o2) {
-                if (o1.getCor().equals(o2.getCor())) {
-                    if (o1.getTamanho().equals(o2.getTamanho())) {
-                        return o1.getNome().compareTo(o2.getNome());
+                if (o1.getColor().equals(o2.getColor())) {
+                    if (o1.getSize().equals(o2.getSize())) {
+                        return o1.getNames().compareTo(o2.getNames());
                     } else {
-                        return o1.getTamanho().compareTo(o2.getTamanho());
+                        return o1.getSize().compareTo(o2.getSize());
                     }
                 } else {
-                    return o1.getCor().compareTo(o2.getCor());
+                    return o1.getColor().compareTo(o2.getColor());
                 }
             }
         });
 
-        return list.toArray( new String[list.size()] );
-       
+        //retorna o array ordenado
+        String[] array = new String[list.length];
+        for (int i = 0; i < list.length; i++) {
+            array[i] = list[i].toString();
+        }
+
+        return array;
         //return ar.stream().mapToInt(Integer::intValue).toArray();
     }
 }
