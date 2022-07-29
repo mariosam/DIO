@@ -6,7 +6,6 @@
 package GO
 
 import (
-	"encoding/json"
 	"sort"
 	"strings"
 )
@@ -18,7 +17,6 @@ func uniformsInOrder(inputs []string) []string {
 	var result []ListUniform
 
 	//guarda os valores em um objeto
-	//var obj = make(map[string]int)
 	for i := 0; i < len(inputs); i++ {
 		nome := inputs[i]
 		i++
@@ -26,23 +24,29 @@ func uniformsInOrder(inputs []string) []string {
 		cor := temp[0]
 		tamanho := temp[1]
 
-		var list = new(ListUniform)
-		list.Color = cor
-		list.Size = tamanho
-		list.Names = nome
-
-		//list := &ListUniform{cor, tamanho, nome}
+		list := &ListUniform{cor, tamanho, nome}
 		result = append(result, *list)
 	}
 
 	//criar uma ordem no objeto
 	sort.Slice(result[:], func(i, j int) bool {
-		return result[i].Color < result[j].Color
+		if result[i].Color == result[j].Color {
+			if result[i].Size == result[j].Size {
+				return result[i].Names < result[j].Names
+			} else {
+				return result[i].Size < result[j].Size
+			}
+		} else {
+			return result[i].Color < result[j].Color
+		}
 	})
 
-	out, _ := json.Marshal(result)
-	return strings.Split(string(out), ",")
-	//return result
+	var out []string
+	for _, v := range result {
+		out = append(out, v.Color+" "+v.Size+" "+v.Names)
+	}
+
+	return out
 }
 
 type ListUniform struct {
