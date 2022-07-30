@@ -6,7 +6,7 @@
 package JAVA;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
@@ -15,16 +15,24 @@ public class UniformesDeFinalDeAno {
     public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
         int n = input.nextInt();
-        String[] array = new String[n+1];
+        String[] array = new String[n];
 
-        for (int i = 1; i <= n; i++) {
-            array[i] = input.next();
+        //le todas as entradas e guarda em um array
+        while ( n > 0 ) {
+            String line = input.nextLine();
+
+            if ( line != "0" ) {
+                array[n-1] = line;
+            } else {
+                n = input.nextInt();
+            }
         }
         input.close();
         
+        //chama funcao e exibe resultados
         array = uniformsInOrder( array );
-        for (String num : array) {
-            System.out.println( num );
+        for (String item : array) {
+            System.out.println( item );
         }
 	}
 
@@ -32,8 +40,7 @@ public class UniformesDeFinalDeAno {
      * Return the order of uniforms in the array
      */
     public static String[] uniformsInOrder(String[] inputs) {
-        //ArrayList<ListUniform> list = new ArrayList<ListUniform>();
-        ListUniform[] list = new ListUniform[inputs.length];
+        ArrayList<ListUniform> list = new ArrayList<ListUniform>();
 
         //guarda os valores em um objeto
         for (int i = 0; i < inputs.length; i++) {
@@ -43,35 +50,31 @@ public class UniformesDeFinalDeAno {
             String cor = temp[0]; //cor do uniforme
             String tamanho = temp[1]; //tamanho do uniforme
 
-            ListUniform uniforme = new ListUniform( cor, tamanho, nome);
-            list[i] = uniforme;
-            //list.add(uniforme);
+            ListUniform uniforme = new ListUniform( cor, tamanho, nome );
+            list.add(uniforme);
         }
 
         //criar uma ordem no objeto
-        Arrays.sort( list, new Comparator<ListUniform>() {
+        list.sort(new Comparator<ListUniform>() {
             @Override
             public int compare(ListUniform o1, ListUniform o2) {
                 if (o1.getColor().equals(o2.getColor())) {
                     if (o1.getSize().equals(o2.getSize())) {
                         return o1.getNames().compareTo(o2.getNames());
-                    } else {
-                        return o1.getSize().compareTo(o2.getSize());
-                    }
-                } else {
-                    return o1.getColor().compareTo(o2.getColor());
+                    } 
+                    return o2.getSize().compareTo(o1.getSize());
                 }
+                return o1.getColor().compareTo(o2.getColor());
             }
         });
 
         //retorna o array ordenado
-        String[] array = new String[list.length];
-        for (int i = 0; i < list.length; i++) {
-            array[i] = list[i].toString();
+        String[] result = new String[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            result[i] = list.get(i).toString();
         }
 
-        return array;
-        //return ar.stream().mapToInt(Integer::intValue).toArray();
+        return result;
     }
 }
 
