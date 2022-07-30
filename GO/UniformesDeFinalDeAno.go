@@ -33,14 +33,13 @@ func uniformsInOrder(inputs []string) []string {
 		if result[i].Color == result[j].Color {
 			if result[i].Size == result[j].Size {
 				return result[i].Names < result[j].Names
-			} else {
-				return result[i].Size < result[j].Size
 			}
-		} else {
-			return result[i].Color < result[j].Color
+			return result[i].Size > result[j].Size
 		}
+		return result[i].Color < result[j].Color
 	})
 
+	//formata o retorno dos dados (de object to array)
 	var out []string
 	for _, v := range result {
 		out = append(out, v.Color+" "+v.Size+" "+v.Names)
