@@ -7,7 +7,7 @@
 let lineX = gets().split(" ");
 let lineY = gets().split(" ");
  
-console.log( getDistance( parseInt(lineX[0]), parseInt(lineX[1]), parseInt(lineY[0]), parseInt(lineY[1]) ) );
+console.log( getDistance( parseFloat(lineX[0]), parseFloat(lineX[1]), parseFloat(lineY[0]), parseFloat(lineY[1]) ) );
 
 /**
  * Do the math: Calculate the distance between two points.
