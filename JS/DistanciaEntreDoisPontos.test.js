@@ -14,6 +14,8 @@ TEST('Starting DistanciaEntreDoisPontos test...', (t) => {
     t.assert(OBJ.getDistance(-2.5, 0.4, 12.1, 7.3) === "16.1484", "Expect: 16.1484")
     //Test 3
     t.assert(OBJ.getDistance(2.5, -0.4, -12.2, 7.0) === "16.4575", "Expect: 16.4575")
+    //Test 4
+    t.assert(OBJ.getDistance(-2.1, 2.5, -2.1, -3.5) === "6.0000", "Expect: 6.0000")
 
     t.end()
 })
